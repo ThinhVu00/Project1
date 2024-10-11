@@ -12,14 +12,23 @@ import BookDetailPage from "./pages/BookDetailPage/BookDetailPage";
 import ReaderPage from "./pages/ReaderPage/ReaderPage";
 
 function App() {
+  // Sử dụng useLocation từ react-router-dom để lấy thông tin đường dẫn hiện tại
+  const location = window.location.pathname;
+
+  // Tìm route hiện tại từ mảng routes
+  const currentRoute = routes.find((route) => route.path === location);
+
   return (
     <div>
       <Router>
-        <HeaderComponent />
+        {currentRoute && currentRoute.isShowHeader && <HeaderComponent />}
+
         <Routes>
           {routes.map((route) => {
             const Page = route.page;
-            return <Route path={route.path} element={<Page />} />;
+            return (
+              <Route key={route.path} path={route.path} element={<Page />} />
+            );
           })}
           <Route path="/order" element={<Orderpage />} />
           <Route path="/librabry" element={<Librabrypage />} />
@@ -33,4 +42,5 @@ function App() {
     </div>
   );
 }
+
 export default App;

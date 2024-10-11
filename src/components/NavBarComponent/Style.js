@@ -12,7 +12,7 @@ export const WrapperTextValue = styled.span`
 `;
 export const WrapperContent = styled.div`
   display: flex;
-  //   allign-items: "center";
+  // allign-items: "center";
   flex-direction: column;
   gap: 12px;
 `;

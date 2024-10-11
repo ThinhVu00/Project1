@@ -1,7 +1,9 @@
 import Homepage from "../pages/Homepage/Homepage";
 import Librabrypage from "../pages/Librabry/Librabrypage";
-import Orderpage from "../pages/Orderpage/Orderpage";
 import TypeBookPage from "../pages/TypeBookPage/TypeBookPage";
+import Orderpage from "../pages/Orderpage/Orderpage";
+import SignInPage from "../pages/SignInPage/SignInPage";
+import SignUpPage from "../pages/SignUpPage/SignUpPage";
 
 export const routes = [
   {
@@ -14,15 +16,24 @@ export const routes = [
     page: Orderpage,
     isShowHeader: true,
   },
-
   {
-    path: "/:type",
+    path: "/type",
     page: TypeBookPage,
     isShowHeader: true,
   },
   {
-    path: "/Libraby",
+    path: "/librabry",
     page: Librabrypage,
-    isShowHeader: true,
+    isShowHeader: false,
+  },
+  {
+    path: "/sign-in",
+    page: SignInPage,
+    isShowHeader: false,
+  },
+  {
+    path: "/sign-up",
+    page: SignUpPage,
+    isShowHeader: false,
   },
 ];
