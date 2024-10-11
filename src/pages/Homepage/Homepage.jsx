@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom"; // Thêm dòng này
 import TypeBooks from "../../components/TypeBooks/TypeBooks";
 import { WrapperBooks, WrapperTypeBooks } from "./style";
 import SliderComponent from "../../components/SliderComponent/SliderComponent";
@@ -9,13 +10,23 @@ import CardComponent from "../../components/CardComponent/CardComponent";
 import ButtonComponent from "../../components/ButtonComponent/ButtonComponent";
 
 const Homepage = () => {
-  const arr = ["Sách học", "Sách kỹ năng", "Sách thiếu nhi"];
+  const arr = [
+    { name: "Homepage", path: "/" }, // Cập nhật để thêm đường dẫn
+    { name: "SignInPage", path: "/sign-in" },
+    { name: "SignUpPage", path: "/sign-up" },
+    { name: "TypeBookPage", path: "/type" },
+  ];
 
   return (
-    <div style={{ padding: " 20px 120px" }}>
+    <div style={{ padding: "20px 120px" }}>
       <WrapperTypeBooks>
         {arr.map((item) => {
-          return <TypeBooks name={item} key={item} />;
+          return (
+            <Link to={item.path} key={item.name}>
+              {" "}
+              <TypeBooks name={item.name} />
+            </Link>
+          );
         })}
       </WrapperTypeBooks>
 
